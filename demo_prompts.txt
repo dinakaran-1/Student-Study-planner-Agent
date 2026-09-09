@@ -1,0 +1,6 @@
+1. Create a 14-day plan for Python, SQL and aptitude. I can study 3 hours a day and Python is my weakest subject.
+2. Remember that I prefer 60-minute study sessions.
+3. Create another 7-day plan using my preferred study session length.
+4. What was my last saved study plan?
+5. Create a 10-day plan for Physics, Mathematics and English.
+6. I only have 2 hours per day now. Make the plan more realistic.
