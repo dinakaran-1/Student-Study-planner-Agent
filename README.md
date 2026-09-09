@@ -1,7 +1,102 @@
-# Study Planner Agent
+# 📚 Study Planner Agent
 
-Study Planner Agent is an AI agent that creates personalized study plans for any subject, not only DSA or DBMS. Its two main tools are `analyze_subjects(subjects)`, which analyzes the student's subjects and recommends study phases, and `build_schedule(subjects, days, daily_hours, session_minutes, priority_subject)`, which converts those decisions into a concrete multi-day schedule. The agent also has supporting tools to save plans, retrieve saved plans, and remember student preferences.
+An AI-powered study planning application that creates personalized, realistic study schedules for any subject using Google Gemini, tool calling, Streamlit, and persistent memory.
 
-The agent's memory is stored persistently in `study_memory.json`. It remembers recent conversation turns, saved study plans, and useful preferences such as available study time and preferred session length. This allows the agent to use information from earlier turns and retrieve a previously saved plan instead of starting from zero each time.
+## 🎯 Project Overview
 
-One honest failure during development was an OpenRouter free-tier rate-limit error, so the project was moved to Gemini. I then hit a Gemini SDK compatibility error because `Part.from_function_response()` did not accept an `id` argument in the installed SDK version; I removed that unsupported argument and retested the tool loop successfully. Group note: Solo submission, so I completed the agent, tools, memory, UI, and demo.
+Study Planner Agent is an AI agent designed to help students create structured study plans based on their subjects, available study time, preferred session length, and priority subjects.
+
+Unlike a simple chatbot, the agent uses multiple tools to analyze subjects, build schedules, save study plans, retrieve previous plans, and remember student preferences.
+
+The system can work with programming subjects, mathematics, science, languages, business subjects, competitive exams, certifications, interviews, and other learning goals.
+
+## ✨ Features
+
+- 🤖 AI-powered study planning using Google Gemini
+- 📋 Personalized multi-day study schedules
+- 🧠 Persistent student memory
+- 💾 Save and retrieve previous study plans
+- 🔧 Tool-based AI agent workflow
+- ⏱️ Customizable daily study hours
+- ⏰ Customizable study session duration
+- ⭐ Priority subject support
+- 📊 Study plan history
+- 💬 Chat-based Streamlit interface
+- 🔎 Agent tool execution trace
+- 🔄 Revision and practice sessions
+- 📚 Supports multiple subjects and learning categories
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| Python | Core application and agent logic |
+| Google Gemini API | AI reasoning and response generation |
+| Google GenAI SDK | Communication with Gemini and function calling |
+| Streamlit | Web-based user interface |
+| python-dotenv | Secure API key configuration |
+| JSON | Persistent storage for memory and saved plans |
+
+## 🔧 AI Tools
+
+The agent uses the following tools:
+
+### 1. `analyze_subjects()`
+
+Analyzes the student's subjects and assigns suitable study phases based on the subject category.
+
+### 2. `build_schedule()`
+
+Creates a concrete multi-day study schedule based on:
+
+- Number of days
+- Daily available hours
+- Session duration
+- Subjects
+- Priority subject
+
+### 3. `save_study_plan()`
+
+Stores the generated study plan in persistent memory.
+
+### 4. `get_study_history()`
+
+Retrieves previously saved study plans and student preferences.
+
+### 5. `remember_student_preference()`
+
+Stores useful student preferences such as preferred session length, available study time, learning style, and preferred subjects.
+
+## 🧠 Persistent Memory
+
+The application stores its memory in:
+
+`study_memory.json`
+
+The memory system keeps track of:
+
+- Student profile
+- Available study time
+- Preferred session length
+- Saved study plans
+- Recent chat history
+- Student preferences
+
+This allows the agent to use information from previous interactions instead of starting from scratch every time.
+
+## 🔄 Agent Workflow
+
+For a new study planning request, the agent can follow this workflow:
+
+```text
+Student Request
+      ↓
+Analyze Subjects
+      ↓
+Build Study Schedule
+      ↓
+Review Tool Results
+      ↓
+Save Study Plan
+      ↓
+Generate Final Response
